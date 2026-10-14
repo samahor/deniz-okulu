@@ -1,0 +1,304 @@
+/* Deniz Okulu destek ve gizlilik sayfaları. Renkler lib/core/palette.dart'tan. */
+@font-face {
+  font-family: "Baloo 2";
+  src: url("Baloo2-Variable.ttf") format("truetype");
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+:root {
+  --ink: #173a5e;
+  --ink-soft: #46647f;
+  --bg: #f2fafe;
+  --card: #ffffff;
+  --line: #d6eaf8;
+  --link: #0b5fa5;
+  --ocean-mid: #1e9bd7;
+  --ocean-bottom: #0b5fa5;
+  --coral: #ff8a80;
+  --coral-shade: #f26a6a;
+  --star: #ffd54f;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #e8f4ff;
+    --ink-soft: #b3c9dd;
+    --bg: #0b1e33;
+    --card: #12304f;
+    --line: #1f4469;
+    --link: #7fd8ff;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+h1,
+h2,
+summary,
+.brand,
+.button,
+.choice .app {
+  font-family: "Baloo 2", system-ui, sans-serif;
+}
+
+a {
+  color: var(--link);
+}
+
+:focus-visible {
+  outline: 3px solid var(--star);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Üst çubuk */
+.top {
+  background: var(--ocean-bottom);
+  color: #fff;
+}
+
+.top-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.brand img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  flex: none;
+}
+
+.langs {
+  display: flex;
+  gap: 4px;
+}
+
+.langs a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.langs a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.langs a[aria-current="page"] {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* Header görseli */
+.hero-wrap {
+  background: linear-gradient(180deg, var(--ocean-mid), var(--ocean-bottom));
+}
+
+.hero {
+  display: block;
+  width: 100%;
+  max-width: 1280px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* İçerik */
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+h1 {
+  font-size: clamp(32px, 7vw, 46px);
+  line-height: 1.1;
+  margin: 8px 0 2px;
+}
+
+.tagline {
+  color: var(--ink-soft);
+  font-size: 19px;
+  margin: 0 0 16px;
+}
+
+h2 {
+  font-size: 26px;
+  line-height: 1.2;
+  margin: 36px 0 12px;
+}
+
+.card,
+details {
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 18px;
+}
+
+details {
+  margin: 10px 0;
+  padding: 0 18px;
+}
+
+summary {
+  cursor: pointer;
+  list-style: none;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 1.3;
+  padding: 14px 32px 14px 0;
+  position: relative;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--coral);
+  color: #173a5e;
+  font-weight: 800;
+  text-align: center;
+  line-height: 26px;
+}
+
+details[open] summary::after {
+  content: "–";
+}
+
+details p {
+  margin: 0 0 16px;
+}
+
+.card {
+  padding: 4px 20px;
+}
+
+.button {
+  display: inline-block;
+  background: var(--coral);
+  color: #173a5e;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 19px;
+  padding: 8px 24px;
+  border-radius: 999px;
+  box-shadow: 0 3px 0 var(--coral-shade);
+}
+
+.button:hover {
+  filter: brightness(1.05);
+}
+
+.email {
+  overflow-wrap: anywhere;
+}
+
+.small {
+  font-size: 15px;
+}
+
+/* Gizlilik */
+.checks {
+  list-style: none;
+  padding: 0;
+}
+
+.checks li {
+  position: relative;
+  padding-left: 32px;
+  margin: 8px 0;
+}
+
+.checks li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #2fae73;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 22px;
+}
+
+/* Dil seçimi (kök sayfa) */
+.chooser {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+}
+
+.choice p {
+  margin: 12px 0;
+}
+
+.choice .lang {
+  color: var(--ink-soft);
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.choice .app {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 1.15;
+  margin-top: 0;
+}
+
+footer {
+  border-top: 2px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 15px;
+  text-align: center;
+  padding: 20px 16px 28px;
+}
+
+footer p {
+  margin: 4px 0 0;
+}
